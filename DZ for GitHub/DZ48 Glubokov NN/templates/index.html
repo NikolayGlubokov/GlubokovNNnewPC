@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<h1>Мы рады приветствовать Вас на сайте нашего автосалона!</h1>
+
+<div class="auto">
+    {% for i in car_list %}
+<div class="auto card" href="/">
+ <div>
+     <p class="imgs" name="/cars/{{i}}">{{i}}</p>
+     <img src="https://www.nissanclub.cz/graphics/gallery/icon/4103-r322.jpg">
+</div>
+
+    </div>
+
+    {% endfor %}
+</div>
+
+
+
+{% endblock content %}

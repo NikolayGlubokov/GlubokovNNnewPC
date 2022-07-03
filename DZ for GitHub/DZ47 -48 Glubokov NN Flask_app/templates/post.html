@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<h1 class="menu"> Мы рады представить Вам курсы наших партнеров!</h1>
+<div class="auto">
+    {% for i in posts %}
+     {% if i  %}
+<div class="auto card">
+     <div>
+         <p class="menu spec"> {{i.title}}</p>
+                <hr size="3px"; color="#c73756">
+                        <h2>{{i.post}} р/месяц</h2>
+
+                <td> {{i.text}}</td>
+
+         <button class="kn1"><a class="spec">Купить</a></button>
+</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+{% endblock %}

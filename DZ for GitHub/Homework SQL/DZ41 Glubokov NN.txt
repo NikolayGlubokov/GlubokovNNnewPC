@@ -1,0 +1,269 @@
+ 
+ID - код по магазину
+Produce - название продукта
+Material – материал
+Color – цвет
+Size – размер
+Country -  страна производитель
+ID_salespeople - код поставщика товара
+Price - цена за штуку
+Count - количество штук
+REM - ремарки
+ 
+========================================================================
+ 
+1. Определите для какого товара код поставщика не определен. (полностью вся табл. переименованные атрибуты)
+SELECT ID AS 'код по магазину', Produce AS 'название продукта', Material AS материал, Color AS 'цвет', Size  AS 'размер', Country AS 'страна производитель', ID_salespeople AS 'код поставщика товара', Price AS 'цена за штуку', Count AS 'количество штук', REM AS 'ремарки'
+FROM Ware
+WHERE ID_salespeople IS NULL
+2. Определить все товары, которые производятся в Украине (марка, код товара. страна)
+SELECT Produce, ID, Country
+FROM Ware
+WHERE Country='Украина';
+3. Удалите из таблицы все товары, которые произведены в Германии
+DELETE 
+FROM Ware
+WHERE Country='Германия';
+4. Замените страну-производителя Польшу на Россию (код, товар, страна, описание товара).
+UPDATE Ware
+SET Country='Россия'
+WHERE Country='Польша';
+
+
+5. Восстановите строки, удаленные в 3 пункте.
+INSERT INTO Ware (ID, Produce, Material, Color, Size, Country, ID_salespeople, Price, Count, REM)
+VALUES(1026, 'F8E157eaLRG', 'полиэстер/ нейлон', 'ч', '38,1x28x70', 'Германия', 2014, 126, 0, 'Stone Street Case (15)')
+VALUES(1254, 'CC06', 'нейлон', 'ч', '38x29x7', 'Германия', 2011, 110, 6, 'Nylon Computer Case (15")')
+VALUES(1049, 'KCB-03BKP', 'кожзам', 'ч', '40х30х8,5', 'Германия', 2001, 325, 14, 'System Case (15)')
+VALUES(1254, 'CKN-002', 'кожзам', 'ч', '39x30x6.4', 'Германия', 2001, 143, 2, 'Notebrief (13.2")')
+VALUES(1026, 'CN01', 'полиэстер', 'ч', '39x30x5', 'Германия', 2011, 435, 32, 'Computer Case (15/15.4)')
+VALUES(1254, 'PON-303BK', 'полиэсте', 'ч', '44.5x33.7x5.1', 'Германия', 2015, 110, 29, 'Large Expandable computer brief(17")')
+ 
+ 
+6.  Выведите весь товар, который не черного цвета (продукт, цену, код продукта)
+SELECT Produce, Price, ID
+FROM Ware
+WHERE Color!='ч'
+
+7. Вставьте строку  NTC-117BK Micro Camera Case, нейлон, ч, 13,3x8,3x5,7, 2016, Украина, 1046
+
+INSERT INTO Ware (Produce, REM, Material, Color, Size, ID_salespeople, Country, ID)
+VALUES ('NTC-117BK', 'Micro Camera Case', 'нейлон', 'ч', '13,3x8,3x5,7', 2016, 'Украина', 1046)
+
+8. Вставьте строку POC-463BK    Compact Camera Case, полиэстер, ч, 11x7x4,5, остальные данные не определены.
+INSERT INTO Ware (ID, Produce, REM, Material, Color, Size)
+VALUES (1255, 'POC-463BK', 'Compact Camera Case', 'полиэстер', 'ч', '11x7x4,5'); Я задал ID по той причине, что автоинкремент на таблице не задан. 
+
+9. Вывести весь товар, который поставляет продавец с кодом 2065 из России
+SELECT *
+FROM Ware
+WHERE Country = 'Россия' AND ID_salespeople='2065';
+
+10. Вывести товар, цена за который находится в диапазоне от 200 до 345
+SELECT *
+FROM Ware
+WHERE Price BETWEEN 200 and 345;
+
+11. Определите все сумки из кожи с размером не менее 40х30х5
+SELECT *
+FROM Ware
+WHERE Material='Кожа' and Size >'40x30x5'
+
+12. Написать запрос, который выводит все сумки и коды их поставщиков, если товара меньше чем на 1200 грн.
+SELECT ID_salespeople, Produce
+FROM Ware
+WHERE Count*Price<1200;
+
+13. Написать запрос, который заменит код поставщика на 2000, если на складе хранится товара менее чем на 500 грн. По данному поставщику.
+UPDATE Ware
+SET ID_salespeople=2000
+WHERE Count*Price<500;
+
+14. Вывести все кожаные сумки, количество которых менее 5 шт. и общая сумма товара не превышает 450 грн. 
+SELECT *
+FROM Ware
+WHERE Material='Кожа' AND Count<5 AND Count*Price<450;
+
+15. Напишите запрос, который выведет все нейлоновые сумки цена на которые не превышает 250 грн.
+SELECT *
+FROM Ware
+WHERE Material='нейлон' AND Price<250;
+
+16. Замените материал нейлон на брезент, если сумка стоит менее 200 грн. 
+UPDATE Ware
+SET Material='брезент'
+WHERE Material='нейлон' AND Price<200;
+
+17. Напишите запрос, который выводит все сумки, у которых есть косметички
+SELECT*
+FROM Ware
+WHERE REM LIKE '%косметичка%'
+
+18. Напишите запрос, который покажет все кожаные сумки черного цвета китайского производства.
+SELECT *
+FROM Ware
+WHERE Material = 'кожа' AND Country = 'Китай' AND Color = 'ч'
+
+19. Напишите запрос, который покажет все сумки с размером более 15 дюймов.
+SELECT *
+FROM Ware
+WHERE REM LIKE '%15,%' or REM LIKE '%16%' OR REM LIKE '%17%';
+SELECT *
+FROM Ware
+WHERE REM GLOB '*1[5-9][,]?*'
+
+20. Напишите запрос, который покажет всех поставщиков сумок не черного цвета.
+SELECT ID_salespeople
+FROM Ware
+WHERE Color !='ч'
+21. Замените материал полиэстер у сумок китайского производства на нейлон
+UPDATE Ware
+SET Material = 'нейлон'
+WHERE Country='Китай' AND (Material LIKE '%полиэстер%' OR Material = 'полиэстер')
+22. В записях с кодом товара: 1015, 1041, 1032, 1010 материал нейлон заменить на полиэстер если страна-производитель Китай.
+UPDATE Ware
+SET Material = 'полиэстер'
+WHERE Country='Китай' AND Material = 'нейлон' and ID in (1015, 1041, 1032, 1010)
+ 
+
+
+/*SELECT o.amt
+FROM Orders o, Salespeople s
+WHERE o.snum=s.snum AND s.sname LIKE 'Rifkin'*/
+SELECT amt
+FROM Orders
+WHERE snum=
+(SELECT snum
+FROM Salespeople
+WHERE sname='Rifkin'
+)
+
+
+SELECT s.com
+FROM Salespeople s, Customers c
+WHERE s.snum=c.snum AND c.City LIKE 'Rome'
+
+SELECT com
+FROM Salespeople
+Where snum IN (
+SELECT snum
+FROM Customers
+WHERE city LIKE 'Rome'
+)
+
+SELECT cname, rating
+FROM Customers
+WHERE rating<(
+SELECT AVG(rating)
+FROM Customers)
+
+SELECT city, cname, MIN(rating)
+FROM Customers
+GROUP BY city
+HAVING MIN (rating) IN (
+    SELECT MIN(rating)
+    FROM Customers)
+--------------------------------------------------------
+SELECT FIO
+FROM Student
+WHERE "Group" IN
+    (SELECT "Group"
+    FROM G
+    WHERE Kafedra IN
+        (SELECT Kafedra
+        FROM Kafedra
+        WHERE Decanat Like "Физико-математический"        
+))
+
+
+SELECT s.FIO, (
+SELECT g.Kafedra
+FROM G g
+WHERE s."Group" = g."Group"
+) AS [Кафедра]
+FROM Student s
+ORDER BY s.FIO
+
+SELECT  DISTINCT s.FIO, g.Kafedra AS [Кафедра]
+FROM Student s, G g
+WHERE s."Group"=g."Group"
+ORDER BY s.FIO
+
+
+
+1.	Необходимо решить извлекать ли некоторые данные из таблицы Заказчиков,
+ если один и более заказчиков в этой таблице находятся в Берлине.
+SELECT cnum, cname, city
+FROM Customers
+WHERE EXISTS (
+SELECT * 
+FROM Customers
+WHERE city='Berlin')
+
+2.	Напишите запрос, который использовал бы подзапрос 
+для получения всех заказов для заказчика с именем Cisneros. 
+SELECT *
+FROM Orders o
+WHERE EXISTS (
+SELECT cnum
+FROM Customers c
+WHERE o.cnum=c.cnum AND c.cname = 'Cisneros' )
+
+3.	Напишите запрос для извлечения всех продавцов, 
+имеющих заказчиков с оценкой 300 (через операторы подзапросов).
+SELECT *
+FROM Salespeople s
+WHERE EXISTS (
+SELECT cnum
+FROM Customers c
+WHERE c.snum=s.snum AND c.rating = 300)
+4.	Напишите запрос, который выберет всех продавцов (по их имени и номеру), имеющих в своих городах заказчиков, которых они не обслуживают.
+
+5.	Вывести всех продавцов и заказчиков, размещенных в Лондоне 
+и вывести их как единое целое.
+SELECT snum, sname
+FROM Salespeople
+WHERE city='London'
+UNION 
+SELECT cnum, cname
+FROM Customers
+WHERE city='London'
+
+6.	Вывести номера и города продавцов.
+SELECT snum, city
+FROM Salespeople
+
+UNION
+SELECT snum, city
+FROM Customers
+
+7.	Создайте объединение из двух запросов, 
+которое показало бы имена,
+ города и оценки всех заказчиков.
+ Те из них, которые имеют поле  rating=200 
+и более, должны, кроме того, иметь слова - "Высокий Рейтинг",
+ а остальные должны иметь слова "Низкий Рейтинг".
+SELECT cname, city, rating, 'Высокий рейтинг'
+FROM Customers
+WHERE rating>=200
+UNION
+SELECT cname, city, rating, 'Низкий рейтинг'
+FROM Customers
+WHERE rating<200
+
+8.	Напишите запрос, который выведет пары имен заказчиков и клиентов.
+SELECT s.sname, c.cname
+FROM Salespeople s INNER Join Customers c
+ON s.snum=c.snum
+
+9.	Напишите запрос, который выведет  список всех клиентов и их заказы, отсортировав имена клиентов по алфавиту.
+
+SELECT c.cname, o.onum
+FROM Customers c LEFT(INNER, RIGHT) JOIN Orders o
+ON c.cnum =o.cnum 
+ORDER BY c.cname
+
+
+SELECT z.*
+FROM (Zakaz z INNER JOIN Klient k ON z.ID_KL=k.ID_KL) INNER JOIN  Prodaves p
+ON k.ID_Pr=p.ID_Pr

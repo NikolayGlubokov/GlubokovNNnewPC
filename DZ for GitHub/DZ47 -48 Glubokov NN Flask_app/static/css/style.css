@@ -1,0 +1,147 @@
+body{
+    background: rgb(179, 190, 212);
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background: rgb(81, 73, 192);
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.flash{
+    padding: 10px;
+}
+.flash.success{
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+.flash.error{
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+.menu a{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+p>a{
+    text-decoration: none;
+    color: brown;
+}
+li>p, li div{
+    border: 1px solid #CCC;
+    padding: 10px 20px;
+}
+
+p.title{
+    margin: 0;
+    font-weight: bold;
+    background: rgba(241, 241, 240, 0.993);
+}
+p.title a{
+    display: block;
+}
+p.title:hover{
+    background: rgb(12, 138, 54);
+}
+.annonce{
+    margin-top: -1px;
+    margin-bottom: 40px;
+    background: #FFF;
+}
+.auto{
+display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: auto;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+
+}
+.auto.card{
+display: flex;
+width:300px;
+            border: 1px solid black;
+            margin: 20px;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 0px;
+            border-radius: 1em;
+            overflow: hidden;
+            border-collapse: collapse;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-shadow: 0 0 5px;
+            min-height: 30px;
+            font-weight: bolder;
+
+ text-align:center
+}
+
+p.spec{
+height:50px;
+justify-content: center;
+text-align: center;
+}
+hr{
+width: 100%}
+.autoinfo{
+justify-content: space-between;
+    flex-basis: auto;
+}
+.autoinfo.title{
+display:flex;
+text-align: center;
+font-weight: bold;
+}
+a.menu{
+ background: rgb(179, 190, 212);
+ font-weight: bolder;
+ text-align:center}
+
+ h1.menu{
+ background: rgb(179, 190, 212);
+  font: 20pt 'Times New Roman';
+ text-align:center}
+
+ p.menu.spec{
+ background: rgb(179, 190, 212);
+font: 18pt 'Times New Roman' ;
+ text-align:center}
+ button.kn1 {
+           padding: 20px;
+margin:20px;
+           border-radius: 5px;
+           color: white;
+           background: rgb(81, 73, 192);
+           width:80%;
+           height:20px;
+justify-content: center;
+       }
+a.spec{
+display: flex;
+justify-content: center;
+margin:-10px;
+ font: 12pt 'Times New Roman'; }
+img{
+margin:10px;
+padding:10px;
+}

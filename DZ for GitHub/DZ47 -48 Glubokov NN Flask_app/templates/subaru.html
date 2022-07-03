@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+{% for i in dbs %}
+    {% if i.title == "Subaru" %}
+<div class="autoinfo">
+<h2 class="autoinfo title">{{i.title}}</h2></br>
+    </br>
+<a class="autoinfo"> <img src="{{i.legendary_cars}}"></a>
+    </br>
+    </br>
+    <article class="autoinfo article">{{i.article}}</article>
+    </br>
+    <p> На данный момент мы ожидаем поставок автомобилей. Самый популярный заказ распространен на {{i.legendary}}</p>
+
+{% endif %}
+{% endfor %}
+</div>
+
+{% endblock content %}

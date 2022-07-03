@@ -1,0 +1,4 @@
+(venv) PS C:\Users\Public\Documents\pythonProject> cd first_app
+(venv) PS C:\Users\Public\Documents\pythonProject\first_app> django-admin startproject password_g
+enerator_project
+(venv) PS C:\Users\Public\Documents\pythonProject\first_app>
