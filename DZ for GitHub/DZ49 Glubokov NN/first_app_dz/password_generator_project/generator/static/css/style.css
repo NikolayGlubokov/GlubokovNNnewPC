@@ -1,0 +1,64 @@
+body{
+    background: lightyellow;
+    font-family: Verdana;
+}
+.container{
+margin:0 auto;
+}
+.container form, .container ul, .container h2{
+background: greenyellow;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 6px;}
+
+.container h1{
+    text-align: center;
+}
+.header{
+display:flex;
+justify-content:center;
+}
+.form{
+
+margin: 5px;
+padding: 10px;}
+
+.container.info{
+padding:50px;
+margin:0 auto;
+
+flex-wrap:wrap;
+justify-content:center;
+}
+.form:hover{
+background:#cbdba5;
+border:2px solid black;
+border-radius: 6px;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 0;
+    border-radius: 6px;
+}
+.container.password{
+    display: block;
+    width: 400px;
+    justify-content: center;
+    
+}
+.menu:hover{
+    background:#cbdba5;
+    }
+table{
+    flex-direction: row;
+    justify-content:center;
+    display: flex;
+}
+.container.password h2{
+    text-align: center;
+    
+}
