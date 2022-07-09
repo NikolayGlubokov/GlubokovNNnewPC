@@ -1,0 +1,62 @@
+{% extends 'skills/base.html' %}
+{% block content %}
+{% load static %}
+<div class="detail">
+<h1>{{ engine.title }}</h1>
+    <h2 class="center">Технические характеристики</h2>
+   <div class="img"><img src="{{engine.image.url}}"></div>
+    <h2 class="center">История и описание двигателя</h2>
+    <p class="engine">{{engine.description}}</p>
+    <h2 class="center">Возможные неисправности и недостатки двигателя</h2>
+    <p class="engine">{{engine.problems}}</p>
+    <h2 class="center">Возможности тюнинга двигателя</h2>
+    <p class="engine">{{engine.tuning}}</p>
+    <h2 class="center">Фото двигателя и модели, на которые он устанавливался</h2>
+   {% if engine.id == 1 %}
+    <div class="img"> <img src="{% static 'engine/mitsu1.jpg' %}" alt="">
+    <img src="{% static 'engine/mitsu2.jpg' %}" alt="">
+        <img src="{% static 'engine/mitsu3.jpg' %}" alt=""></div>
+    {% elif engine.id == 2 %}
+     <div class="img"> <img src="{% static 'engine/b161.png' %}" alt="">
+    <img src="{% static 'engine/b162.jpg' %}" alt="">
+    <img src="{% static 'engine/b163.jpg' %}" alt=""></div>
+       {% elif engine.id == 3 %}
+     <div class="img"> <img src="{% static 'engine/ej251.jpg' %}" alt="">
+    <img src="{% static 'engine/ej252.jpg' %}" alt="">
+    <img src="{% static 'engine/ej253.jpg' %}" alt=""></div>
+       {% elif engine.id == 4 %}
+      <div class="img"><img src="{% static 'engine/vr381.jpeg' %}" alt="">
+    <img src="{% static 'engine/vr382.jpg' %}" alt="">
+    <img src="{% static 'engine/vr383.jpg' %}" alt=""></div>
+       {% elif engine.id == 5 %}
+     <div class="img"> <img src="{% static 'engine/rb261.jpg' %}" alt="">
+    <img src="{% static 'engine/rb262.jpg' %}" alt="">
+    <img src="{% static 'engine/rb263.jpg' %}" alt=""></div>
+       {% elif engine.id == 6 %}
+     <div class="img"> <img src="{% static 'engine/1uzfe1.jpg' %}" alt="">
+    <img src="{% static 'engine/1uzfe2.jpg' %}" alt="">
+    <img src="{% static 'engine/1uzfe3.jpg' %}" alt=""></div>
+       {% elif engine.id == 7 %}
+      <div class="img"><img src="{% static 'engine/s541.jpg' %}" alt="">
+    <img src="{% static 'engine/s542.jpg' %}" alt="">
+    <img src="{% static 'engine/s543.jpg' %}" alt=""></div>
+       {% elif engine.id == 8 %}
+      <div class="img"><img src="{% static 'engine/m501.jpg' %}" alt="">
+    <img src="{% static 'engine/m502.jpg' %}" alt="">
+    <img src="{% static 'engine/m503.jpg' %}" alt=""></div>
+       {% elif engine.id == 9 %}
+     <div class="img"> <img src="{% static 'engine/1jz1.jpg' %}" alt="">
+    <img src="{% static 'engine/1jz2.jpg' %}" alt="">
+    <img src="{% static 'engine/1jz3.jpg' %}" alt=""></div>
+       {% elif engine.id == 10 %}
+     <div class="img"> <img src="{% static 'engine/4a1.jpg' %}" alt="">
+    <img src="{% static 'engine/4a2.jpg' %}" alt="">
+    <img src="{% static 'engine/4a3.jpg' %}" alt=""></div>
+       {% elif engine.id == 11 %}
+     <div class="img"> <img src="{% static 'engine/3s1.jpg' %}" alt="">
+    <img src="{% static 'engine/3s2.jpg' %}" alt="">
+    <img src="{% static 'engine/3s3.jpg' %}" alt=""></div>
+       {% endif %}
+    </div>
+
+{% endblock content %}

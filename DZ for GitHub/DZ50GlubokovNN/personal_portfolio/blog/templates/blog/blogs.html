@@ -1,0 +1,19 @@
+{% extends 'skills/base.html' %}
+{% block content %}
+<h1> БЛОГ </h1>
+<h2 class="count">Постов: {{blogs.count}}</h2>
+
+{% for i in blogs %}
+
+<div class="element">
+    <h2 class="top"><a href="{% url 'blog:detail' i.id %}">{{i.title}}</a></h2>
+    <div class="'blog_text">
+        <h5>{{ i.date|date:'d.m.Y' }}</h5>
+        <p> {{i.description|striptags|truncatechars:360 }}</p>
+
+    </div>
+
+</div>
+
+{% endfor %}
+{% endblock %}
