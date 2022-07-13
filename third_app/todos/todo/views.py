@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
+from .models import Todo
 
 
 def home(request):
@@ -29,8 +31,21 @@ def loginuser(request):
 
 
 def createtodo(request):
-    if request.method == 'GET':
-        return render(request, 'todo/createtodo.html', {'form': TodoForm()})
+    user=User.objects.get(username=request.user)
+    form = TodoForm(request.POST)
+    if request.method == 'POST':
+        try:
+            if form.is_valid():
+                instance=form.save(commit=False)
+                instance.user=user
+                instance.save()
+                return redirect('currenttodos')
+            else:
+                return render(request, 'todo/createtodo.html', {'form': TodoForm(), 'error': '1'})
+        except IntegrityError:
+            return render(request, 'todo/createtodo.html', {'form': TodoForm(),'error': '1'})
+
+    return render(request, 'todo/createtodo.html', {'form': TodoForm()})
 
 
 def signupuser(request):
