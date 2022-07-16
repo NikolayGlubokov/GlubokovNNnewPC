@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('blog/', include('blog.urls')),
     path('engine/', include('engine.urls')),
+    path('access/', include('access.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

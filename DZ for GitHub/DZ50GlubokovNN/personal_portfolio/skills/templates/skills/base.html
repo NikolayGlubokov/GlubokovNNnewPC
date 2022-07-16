@@ -9,19 +9,38 @@
 
 </head>
 <body>
+{% if user.is_authenticated %}
 <div class="menu">
     <div class="wrap">
         <div class="logo">
             <a href="{% url 'index' %}"><img src="{% static 'skills/logo.png' %}"></a>
         </div>
         <ul>
+
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'blog:blogs' %}">Блог</a></li>
             <li><a href="{% url 'engine:engines' %}">Двигатели</a></li>
             <li><a href="{% static 'skills/resume.pdf'%}" target="_blank">Резюме</a></li>
+            <form action="{% url 'access:logoutuser' %}" method="post">
+                {% csrf_token %}
+                <button class="top">Выйти</button>
+            </form>
         </ul>
     </div>
 </div>
+{% else %}
+<div class="menu">
+    <div class="wrap">
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'skills/logo.png' %}"></a>
+        </div>
+        <ul>
+             <li><a href="{% url 'access:loginuser' %}">Вход</a></li>
+             <li><a href="{% url 'access:signupuser' %}">Зарегистрироваться</a></li>
+        </ul>
+    </div>
+</div>
+{% endif %}
 <div class="content">
     <div class="wrap">
         {% block content %}

@@ -50,10 +50,10 @@ font-size: 36px;
     border: 6px solid #fff;
 }
 .top{
-    background: #663666;
     margin: 0;
 }
 .top a{
+background: #663666;
 color:#fff;
 text-decoration: none;
 padding: 20px;
@@ -85,17 +85,19 @@ display:block;
 align-items: center;
 }
 .menu a{
-    color: #663666;
+    
     font-weight: bold;
     text-decoration: none;
 }
 .menu ul{
+    color: #663666;
     display: flex;
     list-style: none;
     font-size: 20px;
 }
 .menu li{
     margin-left: 40px;
+    padding: 10px;
 }
 .engine{
     white-space: pre-wrap;
@@ -103,4 +105,19 @@ align-items: center;
 .center{
     display: flex;
     justify-content: center;
+}
+button{
+    color: #663666;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: 20px;
+    margin-top: 40px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 }
