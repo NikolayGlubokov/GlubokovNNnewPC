@@ -19,6 +19,7 @@
 
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'blog:blogs' %}">Блог</a></li>
+             <li><a href="{% url 'autoparts:autoparts' %}">Строение автомобиля</a></li>
             <li><a href="{% url 'engine:engines' %}">Двигатели</a></li>
             <li><a href="{% static 'skills/resume.pdf'%}" target="_blank">Резюме</a></li>
             <form action="{% url 'access:logoutuser' %}" method="post">

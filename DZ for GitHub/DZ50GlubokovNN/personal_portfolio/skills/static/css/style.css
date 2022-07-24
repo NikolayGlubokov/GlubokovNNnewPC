@@ -121,3 +121,8 @@ button{
     overflow: hidden;
     outline: none;
 }
+.image{
+    max-width: 100%;
+    float:left;
+    margin-right: 20px;
+}

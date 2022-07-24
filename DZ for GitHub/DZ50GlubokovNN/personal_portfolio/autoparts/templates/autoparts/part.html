@@ -1,0 +1,14 @@
+{% extends 'skills/base.html' %}
+
+{% block content %}
+<div class="post">
+    <h2>{{parts.title}}</h2>
+     {% if parts.image %}
+        <img src="{{ parts.image.url }}" class="image" alt="">
+    {% endif %}
+    <p>{{parts.content|linebreaks}}</p>
+    <h2>Наиболее вероятная цена детали: {{parts.price}}</h2>
+</div>
+
+
+{% endblock %}

@@ -26,6 +26,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('engine/', include('engine.urls')),
     path('access/', include('access.urls')),
+    path('autoparts/', include('autoparts.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
