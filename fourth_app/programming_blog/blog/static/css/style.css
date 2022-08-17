@@ -36,6 +36,7 @@ a:hover{
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    justify-content: space-between;
 }
 .logo{
     flex-basis: 40%;
@@ -43,6 +44,7 @@ a:hover{
 .last{
     flex-basis: 30%;
     text-align: center;
+    color: #81d4fa;
 } 
 .sidebar ul{
     width: 320px;
@@ -111,4 +113,90 @@ button{
     width: 100%;
     padding: 10px;
     font-size: 20px;
+    cursor: pointer;
+}
+form label{
+    font-size: 18px;   
+}
+.list-pages{
+    display:flex;
+    justify-content: center;
+}
+.page-num-selected{
+    background: #81d4fa;
+    padding: 20px;
+}
+.list-pages a{
+    background: #264b5d;
+    padding: 20px;
+    display: block;
+    color: #FFF;
+}
+.page-num{
+    margin: 6px;
+    font-weight: bold;
+}
+input, textarea{
+    width: 100%;
+    margin-top: 6px;
+    padding: 6px;
+    box-sizing: border-box;
+
+}
+label{
+    font-size: 20px;
+}
+#id_is_published{
+    width: 20px;
+    height: 20px;
+
+}
+#id_cat{
+    font-size: 20px;
+    padding: 4px;
+}
+.last a{
+    display: inline;
+}
+.logout h2{
+    margin-bottom: 40px;
+}
+.logout a{
+    background: #81d4fa;
+    color: #264b5d;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 86px;
+}
+.wrap1 {
+width:200px;
+margin:auto;
+z-index:1;}
+
+.msg {
+  color: black;
+  background: url(https://dl.dropbox.com/u/1143870/i/sticker.png) top center no-repeat;
+  text-align:center;
+  font-family: 'Bree Serif', Courier, monospaced;
+  width:200px;
+  position:absolute;
+  margin:0;
+  pointer-events: none;
+}
+
+.sticker {
+  width:100px;
+  height:100px;
+  position:absolute;
+  background: url(https://dl.dropbox.com/u/1143870/i/sticker.png) top center no-repeat;
+  animation: spin 10s linear infinite;
+  animation-play-state: paused;
+}
+
+.sticker:hover {
+   animation-play-state: running;
+}
+
+@keyframes spin {
+  100% {transform: rotate(1turn); }
 }

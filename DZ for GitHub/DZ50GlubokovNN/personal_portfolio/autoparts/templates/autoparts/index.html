@@ -1,6 +1,7 @@
 {% extends 'skills/base.html' %}
 
 {% block content %}
+{% include 'list_categories.html' %}
 <ul>
 {% for p in parts %}
 <h2><a href="{{p.get_absolute_url}}">{{ p.title }}</a></h2>

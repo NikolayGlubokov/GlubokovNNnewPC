@@ -27,6 +27,7 @@ urlpatterns = [
     path('engine/', include('engine.urls')),
     path('access/', include('access.urls')),
     path('autoparts/', include('autoparts.urls')),
+    path(r'ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
