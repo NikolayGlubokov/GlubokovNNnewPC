@@ -15,7 +15,7 @@
   <body>
   <div class="bg-light">
 	<nav class="navbar navbar-light bg-light container">
-	  <a class="logo-top" href="#">
+	  <a class="logo-top" href="{% url 'index' %}">
 	    <img src="{% static 'cms/logo.png' %}" class="d-inline-block align-top" alt="" loading="lazy">
 
 	  </a>
@@ -28,6 +28,10 @@
 	</nav>
 	</div>
   {% block content %}
+
+  {% endblock %}
+
+  {% block thanks %}
 
   {% endblock %}
 
