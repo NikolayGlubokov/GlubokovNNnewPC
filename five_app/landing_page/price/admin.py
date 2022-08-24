@@ -3,5 +3,4 @@ from .models import *
 
 admin.site.register(PriceCard)
 admin.site.register(PriceTable)
-
 # Register your models here.

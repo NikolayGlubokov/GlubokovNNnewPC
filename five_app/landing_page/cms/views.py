@@ -19,21 +19,20 @@ def first_page(request):
         'pc_2': pc_2,
         'pc_3': pc_3,
         'price_table': price_table,
-        'form': form, }
+        'form': form,
+    }
+
     return render(request, 'cms/index.html', dict_obj)
+
 
 def thanks_page(request):
     if request.POST:
         name = request.POST['name']
         phone = request.POST['phone']
-        element = Order(order_name = name, order_phone = phone)
+        text = request.POST['text']
+        element = Order(order_name=name, order_phone=phone, order_text=text)
         element.save()
-        send_telegram(tg_name=name, tg_phone=phone)
+        send_telegram(tg_name=name, tg_phone=phone, tg_text=text)
         return render(request, 'cms/thanks.html', {'name':name})
     else:
         return render(request, 'cms/thanks.html')
-
-
-
-
-# Create your views here.

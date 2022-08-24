@@ -12,5 +12,3 @@ class TeleSettings(models.Model):
     class Meta:
         verbose_name = 'Настройка'
         verbose_name_plural = 'Настройки'
-
-# Create your models here.

@@ -2,7 +2,7 @@ from django.db import models
 
 
 class StatusCrm(models.Model):
-    status_name = models.CharField(max_length=200, verbose_name='Название статуса')
+    status_name = models.CharField(max_length=200, verbose_name='Насзвание статуса')
 
     def __str__(self):
         return self.status_name
@@ -12,12 +12,13 @@ class StatusCrm(models.Model):
         verbose_name_plural = 'Статусы'
 
 
+
 class Order(models.Model):
     order_dt = models.DateTimeField(auto_now=True, verbose_name='Дата создания')
     order_name = models.CharField(max_length=200, verbose_name='Имя')
-    order_phone = models.CharField(max_length=50, verbose_name='Телефон')
-    order_status = models.ForeignKey('StatusCrm', on_delete=models.PROTECT, null=True, blank=True,
-                                     verbose_name='Статус')
+    order_phone = models.CharField(max_length=40, verbose_name='Телефон')
+    order_text = models.CharField(max_length=300, verbose_name='Заказ')
+    order_status = models.ForeignKey(StatusCrm, on_delete=models.PROTECT, null=True, blank=True, verbose_name='Статус')
 
     def __str__(self):
         return self.order_name
@@ -25,7 +26,6 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
-
 
 class CommentsCrm(models.Model):
     comment_binding = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заявка')
@@ -40,4 +40,4 @@ class CommentsCrm(models.Model):
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
-
+# Create your models here.

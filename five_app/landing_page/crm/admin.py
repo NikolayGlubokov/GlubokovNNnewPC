@@ -21,9 +21,8 @@ class OrderAdm(admin.ModelAdmin):
     inlines = [Comments,]
 
 
-admin.site.register(StatusCrm)
 admin.site.register(Order, OrderAdm)
+admin.site.register(StatusCrm)
 admin.site.register(CommentsCrm)
-
 # Register your models here.
 #https://api.telegram.org/bot5366946090:AAEeeVHV8vuVHmoMMrLFEIWcHwlph7_JYy0/sendMessage?chat_id=-733830239&text=test

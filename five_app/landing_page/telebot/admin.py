@@ -2,5 +2,3 @@ from django.contrib import admin
 from .models import TeleSettings
 
 admin.site.register(TeleSettings)
-
-# Register your models here.
