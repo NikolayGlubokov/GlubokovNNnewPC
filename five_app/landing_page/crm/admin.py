@@ -9,12 +9,12 @@ class Comments(admin.StackedInline):
 
 
 class OrderAdm(admin.ModelAdmin):
-    list_display = ('id', 'order_status', 'order_name', 'order_phone', 'order_dt')
+    list_display = ('id', 'order_status', 'order_name', 'order_phone','order_text', 'order_dt')
     list_display_links = ('id','order_name')
     search_fields = ('id','order_name','order_phone','order_dt')
     list_filter = ('order_status',)
     list_editable = ('order_status', 'order_phone')
-    fields = ('id', 'order_status', 'order_name', 'order_phone', 'order_dt')
+    fields = ('id', 'order_status', 'order_name', 'order_phone', 'order_text', 'order_dt')
     readonly_fields = ('id', 'order_dt')
     list_per_page = 10
     list_max_show_all = 100

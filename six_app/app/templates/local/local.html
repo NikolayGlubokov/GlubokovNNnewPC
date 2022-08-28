@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="wrap">
+    <div class="block">
+        <div class="elem>">
+            <h2>Погода в вашем городе</h2>
+            <form action="">
+                <input type="text" name="city" placeholder="Введите город" class="city">
+                <br>
+                <input type="submit" name="send" value="Узнать" class="but">
+            </form>
+        </div>
+        <div class="elem>">
+            <h2>Информация</h2>
+            <div class="info">
+                <p class="data">
+                    <b>Город:</b> {{ name }}<br><br>
+                    <b>Регион:</b>{{ region }}<br><br>
+                    <b>Местное время:</b> {{ localtime }}<br><br>
+                    <b>Температура:</b>{{ temp_c }}<br><br>
+                    <b>Скорость ветра: </b> {{ wind_speed }}<br><br>
+                    <b>Направление ветра: </b>{{ wind_dir }}<br><br>
+                    <img src="{{icon}}" alt="">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
